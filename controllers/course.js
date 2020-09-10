@@ -9,16 +9,16 @@ const course = require('../models').course;
 const { courseValiation } = require('../middleware/courseValidate');
 
 module.exports = {
-    list(req, res) {
+    list(req, res, next) {
         return course
             .findAll()
             .then((course) => res.status(200).send(course))
             .catch((error) => {
                 console.log(error);
-                res.status(400).send(error);
+                res.status(404).send(error);
             });
     },
-    getById(req, res) {
+    getById(req, res, next) {
         return course
             .findByPk(req.params.id)
             .then((course) => {
@@ -31,10 +31,10 @@ module.exports = {
             })
             .catch((error) => {
                 console.log(error);
-                res.status(400).send(error);
+                res.status(404).send(error);
             });
     },
-    add(req, res) {
+    add(req, res, next) {
         return course
             .create({
                 name: req.body.name,

@@ -5,33 +5,13 @@ const course = require('../models').course;
 module.exports = {
     list(req, res) {
         return student
-            .findAll({
-                include: [{
-                    model: classroom,
-                    as: 'classroom'
-                }, {
-                    model: course,
-                    as: 'course'
-                }],
-                order: [
-                    ['createdAt', 'DESC'],
-                    [{ model: course, as: 'course' }, 'createAt', 'DESC'],
-                ],
-            })
+            .findAll()
             .then((student) => res.status(200).send(student))
             .catch((error) => { res.status(400).send(error); });
     },
     getById(req, res) {
         return student
-            .findByPk(req.params.id, {
-                include: [{
-                    model: classroom,
-                    as: 'classroom'
-                }, {
-                    model: course,
-                    as: 'course'
-                }],
-            })
+            .findByPk(req.params.id)
             .then(student => {
                 if (!student) {
                     return res.status(404).send({
@@ -59,34 +39,13 @@ module.exports = {
                 console.log(error);
             });
     },
-    addcourse(req, res) {
-        return student
-            .findByPk(req.body.studentId, {
-                include: [{
-                    model: classroom,
-                    as: 'classroom'
-                }, {
-                    model: course,
-                    as: 'course'
-                }],
+    addWithCourse(req, res) {
+        return Lecturer
+            .create({
+                name: req.body.name,
+                course: req.body.course
             })
-            .then((student) => {
-                if (!student) {
-                    return res.status(404).send({
-                        message: 'Student Not Found',
-                    });
-                }
-                course.findByPk(re.body.courseId)
-                    .then((course) => {
-                        if (!course) {
-                            return res.status(404).send({
-                                message: 'course Not Found',
-                            });
-                        }
-                        student.addcourse(course)
-                        return res.status(200).send(student);
-                    })
-            })
+            .then((lecturer) => res.status(201).send(lecturer))
             .catch((error) => res.status(400).send(error));
     },
     update(req, res) {

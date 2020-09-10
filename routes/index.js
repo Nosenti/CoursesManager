@@ -6,6 +6,8 @@ const classroomController = require('../controllers').classroom;
 const studentController = require('../controllers').student;
 const courseController = require('../controllers').course;
 const Lecturercontroller = require('../controllers').lecturer;
+import { courseValidate } from '../middleware/courseValidate';
+
 
 
 // import classroomController from '../controllers/classroom';
@@ -33,7 +35,7 @@ router.delete('/api/students/:id', studentController.delete);
 /*course Router*/
 router.get('/api/courses', courseController.list);
 router.get('/api/courses/:id', courseController.getById);
-router.post('/api/courses', courseController.add);
+router.post('/api/courses', courseValidate, courseController.add);
 router.patch('/api/courses/:id', courseController.update);
 router.delete('/api/courses/:id', courseController.delete);
 
@@ -47,5 +49,5 @@ router.delete('/api/lecturers/:id', Lecturercontroller.delete);
 /*advanced rootes*/
 router.post('/api/classrooms/add_with_students', classroomController.addWithStudents);
 router.post('/api/lecturer/add_with_course', Lecturercontroller.addWithCourse);
-router.post('/api/student/add_course', studentController.addcourse);
+router.post('/api/student/add_course', studentController.addWithCourse);
 module.exports = router;
