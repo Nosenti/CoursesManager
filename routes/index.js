@@ -1,11 +1,12 @@
 // import Validate from '../middleware/courseValidate';
 // import express from 'express';
-const express = require('express');
+import express from 'express';
 var router = express.Router();
 const classroomController = require('../controllers').classroom;
 const studentController = require('../controllers').student;
 const courseController = require('../controllers').course;
 const Lecturercontroller = require('../controllers').lecturer;
+const studentEnlorController = require('../controllers').studentEnrol;
 import { courseValidate } from '../middleware/courseValidate';
 
 
@@ -46,8 +47,14 @@ router.post('/api/lecturers', Lecturercontroller.add);
 router.patch('/api/lecturers/:id', Lecturercontroller.update);
 router.delete('/api/lecturers/:id', Lecturercontroller.delete);
 
+//student Enrol
+//router.post('/api/lecturers', studentEnrolcontroller);
+router.post('/api/courseEnrol', studentEnlorController.enrolCourse);
+router.get('/api/courseEnrol/:id', studentEnlorController.enroledStudent);
+router.get('/api/courseEnrol', studentEnlorController.listOfEnroled);
+
 /*advanced rootes*/
-router.post('/api/classrooms/add_with_students', classroomController.addWithStudents);
-router.post('/api/lecturer/add_with_course', Lecturercontroller.addWithCourse);
-router.post('/api/student/add_course', studentController.addWithCourse);
+// router.post('/api/classrooms/add_with_students', classroomController.addWithStudents);
+// router.post('/api/lecturer/add_with_course', Lecturercontroller.addWithCourse);
+// router.post('/api/student/add_course', studentController.addWithCourse);
 module.exports = router;

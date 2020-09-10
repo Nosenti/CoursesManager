@@ -6,7 +6,7 @@
 const student = require('../models').student;
 const lecturer = require('../models').lecturer;
 const course = require('../models').course;
-const { courseValiation } = require('../middleware/courseValidate');
+import { courseValiation } from '../middleware/courseValidate';
 
 module.exports = {
     list(req, res, next) {

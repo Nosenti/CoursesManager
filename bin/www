@@ -9,6 +9,9 @@ var debug = require('debug')('node-sequelize:server');
 var http = require('http');
 var models = require('../models');
 
+//swagger docummentation
+var swaggerUi = require('swagger-ui-express');
+var swaggerDocument = require('../swagger.json');
 /**
  * Sync Database
  */
@@ -18,7 +21,7 @@ models.sequelize.sync()
 /**
  * Get port from environment and store in Express.
  */
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
