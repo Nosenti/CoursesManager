@@ -1,5 +1,5 @@
-'use strict';
-
+"use strict";
+require("dotenv").config();
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -10,15 +10,21 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
+     */
 
-    await queryInterface.bulkInsert('Users', [{
-      name: 'John Doe',
-      email: 'nraufu@gmail.com',
-      password: 'password',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }], {});
+    await queryInterface.bulkInsert(
+      "Users",
+      [
+        {
+          name: "John Doe",
+          email: process.env.email,
+
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -29,6 +35,6 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
 
-    await queryInterface.bulkDelete('Users', null, {});
-  }
+    await queryInterface.bulkDelete("Users", null, {});
+  },
 };
