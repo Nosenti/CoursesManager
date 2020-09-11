@@ -1,7 +1,6 @@
 module.exports = (sequilize, DataTypes) => {
     const course = sequilize.define("course", {
         name: DataTypes.STRING,
-        name: DataTypes.STRING,
         content: DataTypes.STRING,
         genre: DataTypes.STRING,
         lecturerId: DataTypes.INTEGER
