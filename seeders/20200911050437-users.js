@@ -1,34 +1,33 @@
 'use strict';
-
+require("dotenv").config();
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+    up: async(queryInterface, Sequelize) => {
+        /**
+         * Add seed commands here.
+         *
+         * Example:
+         * await queryInterface.bulkInsert('People', [{
+         *   name: 'John Doe',
+         *   isBetaMember: false
+         * }], {});
+         */
 
-    await queryInterface.bulkInsert('Users', [{
-      name: 'John Doe',
-      email: 'nraufu@gmail.com',
-      password: 'password',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }], {});
-  },
+        await queryInterface.bulkInsert('Users', [{
+            name: 'John Doe',
+            email: process.env.email,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        }], {});
+    },
 
-  down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    down: async(queryInterface, Sequelize) => {
+        /**
+         * Add commands to revert seed here.
+         *
+         * Example:
+         * await queryInterface.bulkDelete('People', null, {});
+         */
 
-    await queryInterface.bulkDelete('Users', null, {});
-  }
+        await queryInterface.bulkDelete('Users', null, {});
+    }
 };
