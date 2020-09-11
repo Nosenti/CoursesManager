@@ -1,4 +1,4 @@
-const Joi = require('joi');
+import Joi from 'joi';
 
 export function courseValidate(req, res, next) {
     const courseValiation = Joi.object({

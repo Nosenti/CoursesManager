@@ -1,7 +1,8 @@
-const classroom = require('./classroom');
-const student = require('./student');
-const lecturer = require('./lecturer');
-const course = require('./course');
+import classroom from './classroom';
+import student from './student';
+import lecturer from './lecturer';
+import course from './course';
+import studentEnrol from './studentEnrol';
 //const { courseValiation } = require('../middleware/courseValidate');
 
 module.exports = {
@@ -9,4 +10,5 @@ module.exports = {
     student,
     lecturer,
     course,
+    studentEnrol,
 };
