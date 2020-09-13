@@ -23,9 +23,15 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">97.14% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>34/35</span>
+=======
+                <span class="strong">97.22% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>35/36</span>
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
             </div>
         
             
@@ -44,9 +50,15 @@
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">97.14% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>34/35</span>
+=======
+                <span class="strong">97.22% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>35/36</span>
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
             </div>
         
             
@@ -117,8 +129,12 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
+<<<<<<< HEAD
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -129,8 +145,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<<<<<<< HEAD
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<span class="cline-any cline-yes">1x</span>
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,10 +199,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">// import Validate from '../middleware/courseValidate';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// import Validate from '../middleware/courseValidate';
 // import express from 'express';
-import express from 'express';
+import express from "express";
 var router = express.Router();
+<<<<<<< HEAD
 const classroomController = require('../controllers').classroom;
 const studentController = require('../controllers').student;
 const courseController = require('../controllers').course;
@@ -192,6 +214,16 @@ import verifyToken from '../middleware/varifyToken';
 import { courseValidate } from '../middleware/courseValidate';
 &nbsp;
 &nbsp;
+=======
+const classroomController = require("../controllers").classroom;
+const studentController = require("../controllers").student;
+const courseController = require("../controllers").course;
+const Lecturercontroller = require("../controllers").lecturer;
+const studentEnlorController = require("../controllers").studentEnrol;
+import { courseValidate } from "../middleware/courseValidate";
+import { verify } from "jsonwebtoken";
+const verifyToken = require("../middleware/varifyToken");
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
 &nbsp;
 // import classroomController from '../controllers/classroom';
 // import studentController from '../controllers/student';
@@ -199,55 +231,68 @@ import { courseValidate } from '../middleware/courseValidate';
 // import Lecturercontroller from '../controllers/lecturer';
 &nbsp;
 /* GET home page. */
-router.get('/', <span class="fstat-no" title="function not covered" >function(r</span>eq, res, next) {
-<span class="cstat-no" title="statement not covered" >    res.</span>render('index', { title: 'Express' });
+router.get("/", <span class="fstat-no" title="function not covered" >function (r</span>eq, res, next) {
+<span class="cstat-no" title="statement not covered" >  res.</span>render("index", { title: "Express" });
 });
 /*classroom Router*/
-router.get('/api/classrooms', classroomController.list);
-router.get('/api/classrooms/:id', classroomController.getById);
-router.post('/api/classrooms', classroomController.add);
-router.patch('/api/classrooms/:id', classroomController.update);
-router.delete('/api/classrooms/:id', classroomController.delete);
+router.get("/api/classrooms", classroomController.list);
+router.get("/api/classrooms/:id", classroomController.getById);
+router.post("/api/classrooms", classroomController.add);
+router.patch("/api/classrooms/:id", classroomController.update);
+router.delete("/api/classrooms/:id", classroomController.delete);
 /*student Router*/
-router.get('/api/students', studentController.list);
-router.get('/api/students/:id', studentController.getById);
-router.post('/api/students', studentController.add);
-router.patch('/api/students/:id', studentController.update);
-router.delete('/api/students/:id', studentController.delete);
+router.get("/api/students", studentController.list);
+router.get("/api/students/:id", studentController.getById);
+router.post("/api/students", studentController.add);
+router.patch("/api/students/:id", studentController.update);
+router.delete("/api/students/:id", studentController.delete);
 &nbsp;
 /*course Router*/
+<<<<<<< HEAD
 router.get('/api/courses', courseController.list);
 router.get('/api/courses/:id', courseController.getById);
 router.post('/api/courses', verifyToken, courseValidate, courseController.add);
 //router.post('/api/courses', courseValidate, courseController.add);
 router.patch('/api/courses/:id', verifyToken, courseController.update);
 router.delete('/api/courses/:id', verifyToken, courseController.delete);
+=======
+router.get("/api/courses", courseController.list);
+router.get("/api/courses/:id", courseController.getById);
+router.post("/api/courses", courseValidate, courseController.add);
+router.patch("/api/courses/:id", courseController.update);
+router.delete("/api/courses/:id", courseController.delete);
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
 &nbsp;
 /*Lecturer Router*/
-router.get('/api/lecturers', Lecturercontroller.list);
-router.get('/api/lecturers/:id', Lecturercontroller.getById);
-router.post('/api/lecturers', Lecturercontroller.add);
-router.patch('/api/lecturers/:id', Lecturercontroller.update);
-router.delete('/api/lecturers/:id', Lecturercontroller.delete);
+router.get("/api/lecturers", Lecturercontroller.list);
+router.get("/api/lecturers/:id", Lecturercontroller.getById);
+router.post("/api/lecturers", Lecturercontroller.add);
+router.patch("/api/lecturers/:id", Lecturercontroller.update);
+router.delete("/api/lecturers/:id", Lecturercontroller.delete);
 &nbsp;
 //student Enrol
 //router.post('/api/lecturers', studentEnrolcontroller);
-router.post('/api/courseEnrol', studentEnlorController.enrolCourse);
-router.get('/api/courseEnrol/:id', studentEnlorController.enroledStudent);
-router.get('/api/courseEnrol', studentEnlorController.listOfEnroled);
+router.post("/api/courseEnrol", studentEnlorController.enrolCourse);
+router.get("/api/courseEnrol/:id", studentEnlorController.enroledStudent);
+router.get("/api/courseEnrol", studentEnlorController.listOfEnroled);
 &nbsp;
 /*advanced rootes*/
 // router.post('/api/classrooms/add_with_students', classroomController.addWithStudents);
 // router.post('/api/lecturer/add_with_course', Lecturercontroller.addWithCourse);
 // router.post('/api/student/add_course', studentController.addWithCourse);
-module.exports = router;</pre></td></tr></table></pre>
+module.exports = router;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+<<<<<<< HEAD
                 at Fri Sep 11 2020 13:55:01 GMT+0200 (South Africa Standard Time)
+=======
+                at Fri Sep 11 2020 13:20:11 GMT+0200 (Central Africa Time)
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
             </div>
         </div>
         <script src="../../prettify.js"></script>

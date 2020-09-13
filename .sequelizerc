@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const path=require('path');
+=======
+const path = require('path');
+>>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
 
 module.exports={
     "config":path.resolve('./config','config.json'),
