@@ -35,7 +35,7 @@ router.delete("/api/students/:id", studentController.delete);
 /*course Router*/
 router.get("/api/courses", courseController.list);
 router.get("/api/courses/:id", courseController.getById);
-router.post("/api/courses", courseValidate, courseController.add);
+router.post("/api/courses", verifyToken, courseValidate, courseController.add);
 router.patch("/api/courses/:id", courseController.update);
 router.delete("/api/courses/:id", courseController.delete);
 

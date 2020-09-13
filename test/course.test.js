@@ -3,7 +3,7 @@ import chaiHttp from 'chai-http';
 import app from '../app.js';
 chai.should();
 chai.use(chaiHttp);
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJtdWttYWZvcm9AZ21haWwuY29tIiwiaWF0IjoxNTk5ODE5NDI0LCJleHAiOjE1OTk5MDU4MjR9.yBVj8I52wI1QlCdA3ztr1_P3BfOA7ADkeSjfu3Ez-qg";
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJtdWttYWZvcm9AZ21haWwuY29tIiwiaWF0IjoxNTk5OTk2NzMyLCJleHAiOjE2MDAwODMxMzJ9.KPrLj-2sM2HK-zReg1wV448qbBJ8iqiSDXmKmyElM0Y";
 let courseId;
 
 describe('POST /api/courses', () => {
