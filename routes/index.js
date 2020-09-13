@@ -2,7 +2,6 @@
 // import express from 'express';
 import express from "express";
 var router = express.Router();
-<<<<<<< HEAD
 const classroomController = require('../controllers').classroom;
 const studentController = require('../controllers').student;
 const courseController = require('../controllers').course;
@@ -11,26 +10,14 @@ const studentEnlorController = require('../controllers').studentEnrol;
 import verifyToken from '../middleware/varifyToken';
 import { courseValidate } from '../middleware/courseValidate';
 
-
-=======
-const classroomController = require("../controllers").classroom;
-const studentController = require("../controllers").student;
-const courseController = require("../controllers").course;
-const Lecturercontroller = require("../controllers").lecturer;
-const studentEnlorController = require("../controllers").studentEnrol;
-import { courseValidate } from "../middleware/courseValidate";
-import { verify } from "jsonwebtoken";
-const verifyToken = require("../middleware/varifyToken");
->>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
-
 // import classroomController from '../controllers/classroom';
 // import studentController from '../controllers/student';
 // import courseController from '../controllers/course';
 // import Lecturercontroller from '../controllers/lecturer';
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+router.get("/", function(req, res, next) {
+    res.render("index", { title: "Express" });
 });
 /*classroom Router*/
 router.get("/api/classrooms", classroomController.list);
@@ -46,19 +33,11 @@ router.patch("/api/students/:id", studentController.update);
 router.delete("/api/students/:id", studentController.delete);
 
 /*course Router*/
-<<<<<<< HEAD
-router.get('/api/courses', courseController.list);
-router.get('/api/courses/:id', courseController.getById);
-router.post('/api/courses', verifyToken, courseValidate, courseController.add);
-router.patch('/api/courses/:id', verifyToken, courseController.update);
-router.delete('/api/courses/:id', verifyToken, courseController.delete);
-=======
 router.get("/api/courses", courseController.list);
 router.get("/api/courses/:id", courseController.getById);
 router.post("/api/courses", courseValidate, courseController.add);
 router.patch("/api/courses/:id", courseController.update);
 router.delete("/api/courses/:id", courseController.delete);
->>>>>>> a0196fbe5c57b20885c3222bf4ac163cb0ebdcbc
 
 /*Lecturer Router*/
 router.get("/api/lecturers", Lecturercontroller.list);
